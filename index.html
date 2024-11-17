@@ -10,49 +10,61 @@
       type="image/png"
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
-      />
-      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-      
-      <title>Frontend Mentor | Contact form</title>
-      
-      <link rel="stylesheet" href="style.css" />
-      <!-- <link rel="stylesheet" href="sweetalert2.min.css" /> -->
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <title>Frontend Mentor | Contact form</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="sweetalert2.min.css" /> -->
   </head>
   <body>
-    <form action="">
+    <form onsubmit="save()">
       <h2>Contact Us</h2>
-      <div>
-        <label>First Name *</label>
-        <input type="text" />
-        <span> This field is required</span>
+      
+      <div class="flexInput1 flexInput">
+        <div class="form-control">
+          <label>First Name *</label>
+          <input type="text" name="name"/>
+          <small>error message</small>
+        </div>
+        <div class="form-control">
+          <label>Last Name *</label>
+          <input type="text" name="lastName" />
+          <small>error message</small>
+        </div>
       </div>
-      <div>
-        <label>Last Name *</label>
-        <input type="text" />
-        <span>This field is required</span>
-      </div>
-      <div>
+
+      <div class="form-control">
         <label>Email Address *</label>
-        <input type="text" placeholder="Please enter a valid email address" />
-        <span>This field is required</span>
+        <input type="email" name="email" />
+        <small>error message</small>
       </div>
-      <div>
+
+      <div class="form-control">
         <label>Query Type *</label>
-        <input type="radio" name="" id="" />General Enquiry
-        <input type="radio" name="" id="" />Support Request
-        <span>Please select a query type</span>
+        <div class="flexInput">
+          <div class="radioInput"><input type="radio" name="query" value="1" />General Enquiry</div>
+          <div class="radioInput"><input type="radio" name="query" value="2" />Support Request</div>
+        </div>
+        <small>error message</small>
       </div>
-      <div>
-        <label>Message</label>
-        <textarea name="" id=""></textarea>
-        <span>This field is required</span>
+
+      <div class="form-control">
+        <label>Message *</label>
+        <textarea type="text" name="textarea" id="text"></textarea>
+        <small>error message</small>
       </div>
-      <div>
-        <label></label>
-        <input type="checkbox" />I consent to being contacted by the team
-        <span>To submit this form, please consent to being contacted</span>
+
+      <div class="form-control">
+        <div class="checkbox">
+          <input type="checkbox" name="ckeckbox" value="true" />
+          <p>I consent to being contacted by the team *</p>
+        </div>
+        <small>error message</small>
       </div>
-      <button>Submit</button>
+
+      <button type="submit">Submit</button>
     </form>
 
     <div class="attribution">
