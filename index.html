@@ -21,46 +21,51 @@
   <body>
     <form onsubmit="save()">
       <h2>Contact Us</h2>
-      
+
       <div class="flexInput1 flexInput">
-        <div class="form-control">
+        <div class="form-control form-controlInput form-input">
           <label>First Name *</label>
-          <input type="text" name="name"/>
+          <input type="text" name="name" />
           <small>error message</small>
         </div>
-        <div class="form-control">
+        <div class="form-control form-controlInput form-input">
           <label>Last Name *</label>
-          <input type="text" name="lastName" />
+          <input type="text" name="lastName" id="form-input"/>
           <small>error message</small>
         </div>
       </div>
 
-      <div class="form-control">
+      <div class="form-control form-controlInput">
         <label>Email Address *</label>
         <input type="email" name="email" />
         <small>error message</small>
       </div>
 
-      <div class="form-control">
+      <div class="">
         <label>Query Type *</label>
-        <div class="flexInput">
-          <div class="radioInput"><input type="radio" name="query" value="1" />General Enquiry</div>
-          <div class="radioInput"><input type="radio" name="query" value="2" />Support Request</div>
+        <div class="form-controlInput alignInput">
+          <div class="radioInput">
+            <input type="radio" name="query" value="1" id="general"/>
+            <label for="general">General Enquiry</label> 
+          </div>
+          <div class="radioInput" >
+            <input type="radio" name="query" value="2"  id="support"/>
+            <label for="support">Support Request</label>  
+          </div>
+          <input type="radio" name="query" value="3" hidden checked />
+          <small>error message</small>
         </div>
-        <small>error message</small>
       </div>
 
-      <div class="form-control">
+      <div class="form-control form-controlInput">
         <label>Message *</label>
         <textarea type="text" name="textarea" id="text"></textarea>
         <small>error message</small>
       </div>
 
-      <div class="form-control">
-        <div class="checkbox">
-          <input type="checkbox" name="ckeckbox" value="true" />
-          <p>I consent to being contacted by the team *</p>
-        </div>
+      <div class="form-controlInput checkbox">
+        <input type="checkbox" name="ckeckbox" value="true" id="check" /> 
+        <label for="check">I consent to being contacted by the team *</label> 
         <small>error message</small>
       </div>
 

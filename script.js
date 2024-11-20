@@ -1,19 +1,88 @@
+const firstName = document.querySelector("input[name='name']");
+const lastName = document.querySelector("input[name='lastName']")
+const email = document.querySelector("input[name='email']")
+const textarea = document.getElementById("text")
+const contract = document.querySelector("input[name='ckeckbox']")
+
 function save() {
   event.preventDefault();
+  
+  checkInputs();
+}
 
-  let firstName = document.querySelector("input[name='name']").value;
-  let lastName = document.querySelector("input[name='lastName']").value;
-  let email = document.querySelector("input[name='email']").value;
-  let queryType = document.querySelector("input[name='query']:checked");
-  let textarea = document.getElementById("text").value;
-  let contract = document.querySelector("input[name='ckeckbox']").checked;
+function checkInputs() {
+  const queryType = document.querySelector("input[name='query']:checked");
+  const firstNameValue = firstName.value;
+  const lastNameValue = lastName.value;
+  const emailValue = email.value;
+  const queryTypeValue = queryType;
+  const textareaValue = textarea.value;
+  const contractValue = contract.checked;
 
-  // if (firstName == "") {
-  //   // errorName.style.display = "flex";
-  //   firstName.setAttribute('class',"redInput");
-  // }
-  validation(firstName, lastName, email, queryType, textarea, contract);
-  console.log(firstName, lastName, email, queryType.value, textarea, contract);
+  if (firstNameValue === "") {
+    setErrorFor(firstName, "this field is required");
+  } else {
+    setSuccessFor(firstName);
+  }
+
+  if (lastNameValue === "") {
+    setErrorFor(lastName, "this field is required");
+  } else {
+    setSuccessFor(lastName);
+  }
+
+  if (emailValue === "") {
+    setErrorFor(email, "this field is required");
+  } else if (!checkEmail(emailValue)) {
+    setErrorFor(email, "Please enter a valid email address");
+  } else {
+    setSuccessFor(email);
+  }
+
+  
+  if (textareaValue === "") {
+    setErrorFor(textarea, "this field is required");
+  } else {
+    setSuccessFor(textarea);
+  }
+  
+  if (contractValue == false) {
+    setErrorFor(contract, "this field is required");
+  } else {
+    setSuccessFor(contract);
+  }
+
+  if (queryType.value != 1 && queryType.value != 2) {
+    setErrorFor(queryType, "this field is required");
+  } else {
+    setSuccessFor(queryType);
+  }
+}
+
+
+function setErrorFor(input, message){
+  const formControlInput = input.parentElement;
+  const small = formControlInput.querySelector("small");
+
+  small.style.display = "flex"
+  small.innerText = message;
+
+  formControlInput.className = "form-control form-controlInput error";
+}
+
+function setSuccessFor(input) {
+  const formControlInput = input.parentElement;
+  const small = formControlInput.querySelector("small");
+
+  small.style.display = "none"
+
+  formControlInput.className ="form-control form-controlInput success";
+}
+
+function checkEmail(email) {
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
 }
 
 function validation(firstName, lastName, email, queryType, textarea, contract) {
