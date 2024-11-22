@@ -19,7 +19,7 @@
     <!-- <link rel="stylesheet" href="sweetalert2.min.css" /> -->
   </head>
   <body>
-    <form onsubmit="save()">
+    <form onsubmit="save()" id="form">
       <h2>Contact Us</h2>
 
       <div class="flexInput1 flexInput">
@@ -44,16 +44,15 @@
       <div class="">
         <label>Query Type *</label>
         <div class="form-controlInput alignInput">
-          <div class="radioInput">
-            <input type="radio" name="query" value="1" id="general"/>
+          <div class="radioInput tab-links" onclick="opentab('general')" >
+            <input type="radio" name="query" value="1" id="general" />
             <label for="general">General Enquiry</label> 
           </div>
-          <div class="radioInput" >
-            <input type="radio" name="query" value="2"  id="support"/>
+          <div class="radioInput tab-links" onclick="opentab('support')" >
+            <input type="radio" name="query" value="2" id="support" />
             <label for="support">Support Request</label>  
           </div>
-          <input type="radio" name="query" value="3" hidden checked />
-          <small>error message</small>
+          <small id="error_check">error message</small>
         </div>
       </div>
 
@@ -65,7 +64,7 @@
 
       <div class="form-controlInput checkbox">
         <input type="checkbox" name="ckeckbox" value="true" id="check" /> 
-        <label for="check">I consent to being contacted by the team *</label> 
+        <label for="check" id="checkContract">I consent to being contacted by the team *</label> 
         <small>error message</small>
       </div>
 

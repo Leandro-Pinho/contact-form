@@ -1,21 +1,21 @@
 const firstName = document.querySelector("input[name='name']");
-const lastName = document.querySelector("input[name='lastName']")
-const email = document.querySelector("input[name='email']")
-const textarea = document.getElementById("text")
-const contract = document.querySelector("input[name='ckeckbox']")
+const lastName = document.querySelector("input[name='lastName']");
+const email = document.querySelector("input[name='email']");
+const textarea = document.getElementById("text");
+const contract = document.querySelector("input[name='ckeckbox']");
+const queryType = document.querySelector("input[name='check']:checked");
 
 function save() {
   event.preventDefault();
-  
+
   checkInputs();
+  validateCheck();
 }
 
 function checkInputs() {
-  const queryType = document.querySelector("input[name='query']:checked");
   const firstNameValue = firstName.value;
   const lastNameValue = lastName.value;
   const emailValue = email.value;
-  const queryTypeValue = queryType;
   const textareaValue = textarea.value;
   const contractValue = contract.checked;
 
@@ -39,32 +39,60 @@ function checkInputs() {
     setSuccessFor(email);
   }
 
-  
   if (textareaValue === "") {
     setErrorFor(textarea, "this field is required");
   } else {
     setSuccessFor(textarea);
   }
-  
+
   if (contractValue == false) {
     setErrorFor(contract, "this field is required");
   } else {
     setSuccessFor(contract);
   }
+}
 
-  if (queryType.value != 1 && queryType.value != 2) {
-    setErrorFor(queryType, "this field is required");
-  } else {
-    setSuccessFor(queryType);
+function validateCheck() {
+  var errorCheck = document.getElementById("error_check");
+
+  var check = document.getElementById("form").query,
+    isChecked = false,
+    i;
+
+  for (i = 0; i < check.length; i += 1) {
+    if (check[i].checked) {
+      errorCheck.style.display = "none";
+      isChecked = true;
+      break;
+    }
   }
+
+  if (!isChecked) {
+    errorCheck.style.display = "block";
+    errorCheck.style.color = "hsl(0, 66%, 54%)"
+    errorCheck.innerText = "this field is required";
+    return false;
+  }
+  return true;
 }
 
 
-function setErrorFor(input, message){
+
+var tablinks = document.getElementsByClassName("tab-links")
+
+function opentab() {
+    for (tablink of tablinks) {
+        tablink.classList.remove("radioIn");
+    }
+    event.currentTarget.classList.add("radioIn"); 
+}
+
+
+function setErrorFor(input, message) {
   const formControlInput = input.parentElement;
   const small = formControlInput.querySelector("small");
 
-  small.style.display = "flex"
+  small.style.display = "flex";
   small.innerText = message;
 
   formControlInput.className = "form-control form-controlInput error";
@@ -74,9 +102,9 @@ function setSuccessFor(input) {
   const formControlInput = input.parentElement;
   const small = formControlInput.querySelector("small");
 
-  small.style.display = "none"
+  small.style.display = "none";
 
-  formControlInput.className ="form-control form-controlInput success";
+  formControlInput.className = "form-control form-controlInput success";
 }
 
 function checkEmail(email) {

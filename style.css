@@ -46,68 +46,6 @@ input {
   cursor: pointer;
 }
 
-form .form-control {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-control input:focus,
-textarea:focus {
-  outline-color: var(--Green-medium);
-}
-input:hover, textarea:hover {
-  border-color: var(--Green-medium);
-}
-
-input[type="checkbox"]:checked,
-input[type="radio"]:checked {
-  accent-color: var(--Green-medium);
-}
-
-form .flexInput1 input {
-  padding-right: 82px;
-  /* width: 229px; */
-}
-
-form .flexInput {
-  display: flex;
-  gap: 15px;
-}
-
-.checkbox {
-  display: flex;
-  column-gap: 5px;
-  padding-top: 10px;
-  cursor: pointer;
-}
-
-.radioInput input[type="radio"]:checked {
-  background-color: var(--Green-medium);
-}
-
-.radioInput {
-  display: flex;
-  column-gap: 5px;
-  border-radius: 5px;
-  border: 1px solid var(--Grey-medium);
-  padding: 8px 106px 8px 20px;
-  font-size: 13px;
-}
-
-.form-control:nth-child(6) {
-  display: block;
-}
-
-.alignInput:nth-child() {
-  background: #2ecc71;
-}
-
-.alignInput {
-  display: flex;
-  column-gap: 14px;
-  margin-top: 5px;
-}
-
 label {
   font-weight: 400;
   font-size: 13px;
@@ -143,12 +81,94 @@ button {
   color: var(--White);
   cursor: pointer;
 
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 button:hover {
   background-color: var(--Grey-darker);
+}
 
+form .form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control input:focus,
+textarea:focus {
+  outline-color: var(--Green-medium);
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--Green-medium);
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  accent-color: var(--Green-medium);
+}
+
+form .flexInput1 input {
+  padding-right: 82px;
+  /* width: 229px; */
+}
+
+form .flexInput {
+  display: flex;
+  gap: 15px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+
+.checkbox label,
+.radioInput label {
+  margin-bottom: 1px;
+}
+
+label#checkContract,
+input#general + label,
+input#support + label {
+  cursor: pointer;
+}
+
+.radioInput input[type="radio"]:checked {
+  background-color: var(--Green-medium);
+}
+
+.radioIn {
+  border: 1px solid var(--Green-medium);
+  background: var(--Green-lighter);
+}
+
+.radioInput {
+  display: flex;
+  column-gap: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--Grey-medium);
+  padding: 8px 106px 8px 20px;
+  font-size: 13px;
+}
+
+.form-control:nth-child(6) {
+  display: block;
+}
+
+.alignInput {
+  display: flex;
+  column-gap: 14px;
+  row-gap: 5px;
+  margin-top: 5px;
+  flex-wrap: wrap;
+}
+
+.alignInput input {
+  align-self: stretch;
 }
 
 .form-controlInput small {
@@ -191,6 +211,12 @@ button:hover {
   form .flexInput1 input {
     padding-right: 175px;
     /* width: 272px; */
+  }
+
+  .radioInput {
+    row-gap: 10px;
+    width: 100%;
+    padding: 8px 0px 8px 20px;
   }
   .attribution {
     display: none;
