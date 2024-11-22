@@ -26,11 +26,11 @@ Este é um projeto simples de validação de formulário, desenvolvido com **HTM
 
 1. Clone este repositório:
    ```bash
-   git clone https://github.com/seu-usuario/validacao-formulario.git
+   git clone https://github.com/Leandro-Pinho/contact-form.git
    ```
 2. Navegue até a pasta do projeto:
    ```bash
-   cd validacao-formulario
+   cd contact-form
    ```
 3. Abra o arquivo `index.html` no navegador de sua preferência.
 
@@ -91,7 +91,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 Para dúvidas ou sugestões, entre em contato:  
 - **Email**: leandro.spinho@outlook.com  
-- **GitHub**: [seu-usuario](https://github.com/leandro_pinho)  
+- **GitHub**: [seu-usuario](https://github.com/Leandro-Pinho)
 
 --- 
 
