@@ -50,7 +50,20 @@ function checkInputs() {
   } else {
     setSuccessFor(contract);
   }
+
+
+  if (
+    firstNameValue != "" &&
+    lastNameValue != "" &&
+    emailValue != "" &&
+    textareaValue != "" &&
+    contractValue != false
+  ) {
+    // cleanForm();
+    MessageSuccess();
+  }
 }
+console.log(queryType)
 
 function validateCheck() {
   var errorCheck = document.getElementById("error_check");
@@ -113,66 +126,6 @@ function checkEmail(email) {
   );
 }
 
-function validation(firstName, lastName, email, queryType, textarea, contract) {
-  let errorName = document.getElementById("errorName");
-  let errorLast = document.getElementById("errorLast");
-  let errorEmail = document.getElementById("errorEmail");
-  let validEmail = document.getElementById("validEmail");
-  let errorRadio = document.getElementById("errorRadio");
-  let errorMessage = document.getElementById("errorMessage");
-  let errorCheck = document.getElementById("errorCheck");
-
-  // firstName.setAttribute('class', "redInput")
-  firstName.className += "redInput";
-
-  if (firstName == "") {
-    errorName.style.display = "flex";
-    // email.setAttribute('class',"redInput");
-  } else {
-    errorName.style.display = "none";
-  }
-
-  lastName == ""
-    ? (errorLast.style.display = "flex")
-    : (errorLast.style.display = "none");
-
-  email == ""
-    ? (errorEmail.style.display = "flex")
-    : IsEmail(email) == true
-    ? (errorEmail.style.display = "none") && (validEmail.style.display = "none")
-    : (validEmail.style.display = "flex") &&
-      (errorEmail.style.display = "none");
-
-  queryType == null
-    ? (errorRadio.style.display = "flex")
-    : (errorRadio.style.display = "none");
-
-  textarea == ""
-    ? (errorMessage.style.display = "flex")
-    : (errorMessage.style.display = "none");
-
-  contract == ""
-    ? (errorCheck.style.display = "flex")
-    : (errorCheck.style.display = "none");
-
-  if (
-    firstName != "" &&
-    lastName != "" &&
-    email != "" &&
-    queryType != null &&
-    textarea != "" &&
-    contract != false
-  ) {
-    submit();
-    cleanForm();
-  }
-}
-
-function IsEmail(email) {
-  var re = /\S+@\S+\.\S+/;
-  return re.test(email);
-}
-
 function cleanForm() {
   document.querySelector("input[name='name']").value = "";
   document.querySelector("input[name='lastName']").value = "";
@@ -182,7 +135,7 @@ function cleanForm() {
   document.querySelector("input[name='ckeckbox']").checked = false;
 }
 
-function submit() {
+function MessageSuccess() {
   // alert(`Message Sent! <br> `)
   Swal.fire({
     position: "top",
@@ -190,6 +143,11 @@ function submit() {
     // titleText: "ola",
     title: "Thanks for completing the form. We'll be in touch soon!",
     showConfirmButton: false,
-    timer: 1500,
+    timer: 2500,
   });
+
+  setTimeout(() => {
+    window.location.reload(true)
+  }, "2500");
+  
 }
